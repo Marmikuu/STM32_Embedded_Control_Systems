@@ -1,4 +1,2 @@
-../Core/Src/PID_controller.c:10:7:PID_calc_U	7
-../Core/Src/PID_controller.c:62:10:PWM_calc_output	1
-../Core/Src/PID_controller.c:71:6:PWM_set_output	6
-../Core/Src/PID_controller.c:76:6:PID_controller_init	1
+../Core/Src/PID_controller.c:13:7:PID_calc_U	7
+../Core/Src/PID_controller.c:64:6:PID_controller_init	1

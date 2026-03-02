@@ -3,7 +3,8 @@
  *
  *  Created on: Mar 1, 2026
  *
- *      Author: Marcin Mikula
+ *      Author: Marcin Mikula (Marmikuu)
+ *      github.com/Marmikuu/
  *
  */
 
@@ -30,20 +31,11 @@ typedef struct {
 	float U_min;/// [%]
 	float U_max; /// [%]
 
-
-	////// PWM output signal generation
-	TIM_HandleTypeDef *htim;
-	uint32_t channel;
-
 } PID_HandleTypeDef;
 
 
 float PID_calc_U(PID_HandleTypeDef *hPID,float y ,float y_set);
 
-uint32_t PWM_calc_output(float U_percent, TIM_HandleTypeDef *htim);
-
-void PWM_set_output(float U_percent, PID_HandleTypeDef *hPID);
-
-void PID_controller_init(PID_HandleTypeDef *hPID, float Kp, float Ti , float Td, float Ts, bool Antiwindup_ON, TIM_HandleTypeDef *htim,uint32_t channel );
+void PID_controller_init(PID_HandleTypeDef *hPID, float Kp, float Ti , float Td, float Ts, bool Antiwindup_ON );
 
 #endif /* INC_PID_CONTROLLER_H_ */

@@ -2,7 +2,10 @@
  * PID controller library
  *
  *  Created on: Mar 1, 2026
- *      Author: Marcin
+ *
+ *      Author: Marcin Mikula (Marmikuu)
+ *      github.com/Marmikuu/
+ *
  */
 
 #include "PID_controller.h"
@@ -58,22 +61,7 @@ float PID_calc_U(PID_HandleTypeDef *hPID,float y ,float y_set)
 }
 
 
-
-uint32_t PWM_calc_output(float U_percent, TIM_HandleTypeDef *htim)
-{
-
-	//// Calculate PWM duty cycle from PID controller output signal in [%]
-	uint32_t counter_period = ( __HAL_TIM_GET_AUTORELOAD(htim) );/// ARR - autoreload register
-
-	return (uint32_t)(U_percent *  (counter_period+1) /100.f);
-}
-
-void PWM_set_output(float U_percent, PID_HandleTypeDef *hPID)
-{
-	__HAL_TIM_SET_COMPARE( (hPID->htim), hPID->channel ,PWM_calc_output(U_percent, (hPID->htim)));
-}
-
-void PID_controller_init(PID_HandleTypeDef *hPID, float Kp, float Ti , float Td, float Ts, bool antiwindup_ON, TIM_HandleTypeDef *htim,uint32_t channel)
+void PID_controller_init(PID_HandleTypeDef *hPID, float Kp, float Ti , float Td, float Ts, bool antiwindup_ON)
 {
 	hPID->Kp = Kp;
 	hPID -> Ti =Ti;
@@ -86,8 +74,5 @@ void PID_controller_init(PID_HandleTypeDef *hPID, float Kp, float Ti , float Td,
 
 	hPID->err_old = 0.0f;
 	hPID->err_sum = 0.0f;
-
-	hPID->htim = htim;
-	hPID->channel = channel;
 }
 

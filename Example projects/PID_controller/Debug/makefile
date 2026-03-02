@@ -64,8 +64,8 @@ all: main-build
 main-build: PID_controller.elf secondary-outputs
 
 # Tool invocations
-PID_controller.elf PID_controller.map: $(OBJS) $(USER_OBJS) C:\Users\Marcin\STM32CubeIDE\workspace_1.18.0\PID_controller\STM32L476RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "PID_controller.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Marcin\STM32CubeIDE\workspace_1.18.0\PID_controller\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PID_controller.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+PID_controller.elf PID_controller.map: $(OBJS) $(USER_OBJS) C:\Users\Marcin\Pictures\GIT\Github\STM32_Embedded_Control_Systems\Example\ projects\PID_controller\STM32L476RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "PID_controller.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Marcin\Pictures\GIT\Github\STM32_Embedded_Control_Systems\Example projects\PID_controller\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PID_controller.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

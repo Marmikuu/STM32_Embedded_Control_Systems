@@ -27,6 +27,9 @@
 /* USER CODE BEGIN Includes */
 
 #include "PID_controller.h"
+#include "PWM_output.h"
+
+
 #include "tim.h"
 
 
@@ -173,7 +176,7 @@ void PID_task_init(void *argument)
 	float _y_set = 0.0f;
 	float _y =  0.0f;
 
-	PID_controller_init(&hPID1, Kp, Ti, Td, Ts, true, &htim16, TIM_CHANNEL_1);
+	PID_controller_init(&hPID1, Kp, Ti, Td, Ts, true);
 	uint32_t tick = osKernelGetTickCount();
 
 
@@ -181,7 +184,8 @@ void PID_task_init(void *argument)
   for(;;)
   {
 	  float U = PID_calc_U(&hPID1, _y, _y_set);
-	  PWM_set_output(U, &hPID1);
+
+	  PWM_set_output(U, &htim16, TIM_CHANNEL_1);
 
 	  tick+= (100 * osKernelGetTickFreq())/ 1000;
 
