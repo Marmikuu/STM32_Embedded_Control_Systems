@@ -3,7 +3,10 @@ Embedded control systems library for STM32 microcontrollers. Provides modular di
 
 Library consist of:
 
-- PWM output functions, they calculate and set given PWM duty cycle to a timer
+- PWM output functions
+
+They calculate and set given PWM duty cycle to a timer
+
     How to use:
     - Configure timer for PWM output
     - Specify channel and PWM duty cycle in percent value [0.0 , 100.0 ] %
@@ -14,6 +17,7 @@ Library consist of:
 
 
 - PID controller 
+
     Features:
     - Output saturation (min, max values)
     - Anti-windup "clamping" method (optional)
