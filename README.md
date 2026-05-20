@@ -24,7 +24,7 @@ Demo:
 PID controller was tested on STM32L476RG Nucleo board and industrial-grade GR63x55 DC Motor.
 
 <p align="center">
-  <img src="Media/DC_motor_wiring_photo.png" width="700"><br>
+  <img src="Media/DC_motor_wiring_photo.jpeg" width="700"><br>
   <em>Figure 1. DC Motor test setup</em>
 </p>
 
