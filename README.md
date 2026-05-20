@@ -3,16 +3,16 @@ Embedded control systems library for STM32 microcontrollers. Provides modular di
 
 Library consist of:
 
-- PWM output functions
+- PWM output functions  
+They calculate and set given PWM duty cycle to a timer  
 
-They calculate and set given PWM duty cycle to a timer
+How to use:  
 
-    How to use:
-    - Configure timer for PWM output
-    - Specify channel and PWM duty cycle in percent value [0.0 , 100.0 ] %
+- Configure timer for PWM output
+- Specify channel and PWM duty cycle in percent value [0.0 , 100.0 ] %
 
-        The function header is below;
-        void PWM_set_output(float U_percent, TIM_HandleTypeDef *htim,uint32_t channel)
+The function header is below;  
+    void PWM_set_output(float U_percent, TIM_HandleTypeDef *htim,uint32_t channel)
 
 
 
