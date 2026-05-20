@@ -37,10 +37,14 @@ float PID_calc_U(PID_HandleTypeDef *hPID,float y ,float y_set)
 
 	if (hPID->antiwindup_ON == true)
 	{
-		if ( (U > hPID->U_min && U < hPID->U_max))
+		if ( (U >= hPID->U_min && U <= hPID->U_max))
 		{
 			hPID->err_sum += err;
 		}
+	}
+	else
+	{
+		hPID->err_sum += err;
 	}
 
 	///////////// Output signal (U) saturation
